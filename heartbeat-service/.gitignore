@@ -1,0 +1,10 @@
+.venv
+__pycache__
+.vscode
+*.yaml
+!settings.template.yaml
+docker-compose.yml
+*.png
+.pybuild
+.env.sh
+dist

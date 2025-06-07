@@ -1,0 +1,27 @@
+[project]
+name = "heartbeat-service"
+version = "0.1.0"
+description = "An example how to install Python app as an APT package."
+authors = [
+    {name = "ztarbug",email = "kronprinzfriedrich@gmx.de"}
+]
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+packages = [{ include = "heartbeat_service", from = "src" }]
+dependencies = [
+]
+
+[tool.poetry.dependencies]
+redis = "^5.0.0"
+typer = "^0.9.0"
+
+[tool.poetry.scripts]
+heartbeat-service = "apt_example.service:heartbeat"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+pyinstaller = "^6.0.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

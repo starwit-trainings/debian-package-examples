@@ -1,0 +1,15 @@
+[Unit]
+Description=Heartbeat Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/heartbeat_service
+Restart=always
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=heartbeat
+
+[Install]
+WantedBy=multi-user.target

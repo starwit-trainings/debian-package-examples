@@ -1,0 +1,13 @@
+Source: starwit-apt-example
+Maintainer: Markus Zarbock <kronprinzfriedrich@gmx.de>
+Homepage: https://starwit.de
+Build-Depends: debhelper (>= 11), dh-python, python3-all, python3-poetry
+Section: devel
+Priority: optional
+Standards-Version: 4.5.0
+X-Python3-Version: >= 3.10
+
+Package: starwit-apt-example
+Architecture: any
+Description: Sample APT package for Python app
+Depends: ${python3:Depends}

@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+# Enable and start the service after installation
+if [ "$1" = "configure" ]; then
+    systemctl daemon-reload
+    systemctl enable heartbeat.service
+    systemctl start heartbeat.service
+fi
+
+#DEBHELPER#
+exit 0

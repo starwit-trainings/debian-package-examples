@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+# Stop and disable the service before removal
+if [ "$1" = "remove" ]; then
+    systemctl stop heartbeat.service || true
+    systemctl disable heartbeat.service || true
+fi
+
+#DEBHELPER#
+exit 0
