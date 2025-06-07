@@ -14,13 +14,14 @@ dependencies = [
 [tool.poetry.dependencies]
 redis = "^5.0.0"
 typer = "^0.9.0"
+pyinstaller = "^6.14.0"
 
 [tool.poetry.scripts]
 heartbeat-service = "apt_example.service:heartbeat"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.0.0"
-pyinstaller = "^6.0.0"
+pyinstaller = "^6.14.0"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

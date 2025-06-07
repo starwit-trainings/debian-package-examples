@@ -9,21 +9,20 @@ def build_executable():
     """Build an executable using PyInstaller"""
     print("Building executable with PyInstaller...")
     
-    # Create spec file if it doesn't exist
-    if not os.path.exists("heartbeat_service.spec"):
-        subprocess.run([
-            "python", "-m", "PyInstaller",
-            "--name=heartbeat_service",
-            "--onefile",
-            "--clean",
-            "src/heartbeat_service/service.py"
-        ], check=True)
-    else:
-        # Build using existing spec file
-        subprocess.run([
-            "python", "-m", "PyInstaller",
-            "heartbeat_service.spec"
-        ], check=True)
+    # Remove existing spec file to ensure we use the latest options
+    if os.path.exists("heartbeat_service.spec"):
+        os.remove("heartbeat_service.spec")
+        
+    # Build with options to properly bundle Python interpreter
+    subprocess.run([
+        "python", "-m", "PyInstaller",
+        "--name=heartbeat_service",
+        "--onefile",
+        "--clean",
+        "--add-binary=/usr/lib/python3.13/lib-dynload/*:lib-dynload",
+        "--hidden-import=_decimal",
+        "src/heartbeat_service/service.py"
+    ], check=True)
     
     print("Executable built successfully!")
     print(f"Executable location: {os.path.abspath('dist/heartbeat_service')}")

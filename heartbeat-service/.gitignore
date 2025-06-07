@@ -8,3 +8,7 @@ docker-compose.yml
 .pybuild
 .env.sh
 dist
+build
+target
+
+heartbeat_service.spec

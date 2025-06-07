@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/heartbeat-service
+ExecStart=/usr/bin/heartbeat_service
 Restart=always
 RestartSec=5
 StandardOutput=syslog

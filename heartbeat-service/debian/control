@@ -1,4 +1,4 @@
-Source: starwit-apt-example
+Source: starwit-heartbeat-service
 Maintainer: Markus Zarbock <kronprinzfriedrich@gmx.de>
 Homepage: https://starwit.de
 Build-Depends: debhelper (>= 11), dh-python, python3-all, python3-poetry
@@ -7,7 +7,7 @@ Priority: optional
 Standards-Version: 4.5.0
 X-Python3-Version: >= 3.10
 
-Package: starwit-apt-example
+Package: starwit-heartbeat-service
 Architecture: any
 Description: Sample APT package for Python app
-Depends: ${python3:Depends}
+Depends: ${misc:Depends}

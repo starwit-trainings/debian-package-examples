@@ -23,14 +23,25 @@ function build_package() {
     KEY_ID=`gpg --list-keys --with-colons | grep pub | cut -d: -f5`
     echo "Signing with key id: $KEY_ID"
 
+    # Just in case, regenerate lock file
+    poetry lock
+
+    # Ensure PyInstaller is installed
+    poetry install --with dev
+
     #build binary
     poetry run python build_executable.py
 
-    dpkg-buildpackage -k$KEY_ID 
+    # create target dir for artifacts
+    mkdir -p target
+
+    dpkg-buildpackage -k$KEY_ID
+    mv ../starwit-heartbeat* target/
 }
 
 function clean() {
     rm -rf dist
+    rm -rf target
     dpkg-buildpackage -rfakeroot -Tclean
 }
 

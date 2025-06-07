@@ -1,1 +1,2 @@
 debian/heartbeat.service /lib/systemd/system/
+dist/heartbeat_service /usr/bin/
