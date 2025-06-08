@@ -1,0 +1,16 @@
+Source: heartbeat-app
+Section: python
+Priority: optional
+Maintainer: Markus Zarbock <kronprinzfriedrich@gmx.de>
+Build-Depends: debhelper (>= 11), dh-python, python3-all (>= 3.10), python3-setuptools, python3-pip
+Standards-Version: 4.1.3
+Homepage: https://starwit.de
+
+Package: heartbeat-app
+Architecture: all
+Depends: ${misc:Depends}, python3 (>= 3.10), python3 (<< 3.13), python3-pydantic
+XB-Python-Version: ${python:Versions}
+Description: My Heartbeat Python Application
+ A Python application packaged for Debian.
+ This package provides a simple example of packaging
+ a Python application using Poetry for Debian.

@@ -1,0 +1,14 @@
+.venv
+__pycache__
+.vscode
+*.yaml
+!settings.template.yaml
+docker-compose.yml
+*.png
+.pybuild
+.env.sh
+dist
+build
+target
+
+heartbeat_service.spec

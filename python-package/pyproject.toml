@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "heartbeat-app"
+version = "0.1.0"
+description = "My Python application packaged for Debian"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+packages = [{include = "heartbeat_app"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^2.0.0"
+pydantic-settings = "^2.0.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0"
+
+[tool.poetry.scripts]
+heartbeat-app = "heartbeat_app.cli:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
