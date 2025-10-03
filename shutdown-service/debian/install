@@ -1,0 +1,7 @@
+settings.yaml /etc/shutdown-service
+main.py /opt/shutdown-service
+
+requirements.txt /opt/shutdown-service
+shutdown_service /opt/shutdown-service
+
+debian/shutdown-service.service /usr/lib/systemd/system/

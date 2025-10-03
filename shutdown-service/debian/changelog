@@ -1,5 +1,11 @@
 shutdown-service (0.0.1) unstable; urgency=medium
 
+  * Automated build release --author Build Bot <foss@starwit.de>
+
+ -- Markus Zarbock <foss@starwit.de>  Fri, 03 Oct 2025 23:34:12 +0200
+
+shutdown-service (0.0.1) unstable; urgency=medium
+
   * Initial release.
 
  -- Markus Zarbock <foss@starwit.de>  Fri, 03 Oct 2025 00:00:00 +0000

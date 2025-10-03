@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mkdir -p /etc/shutdown-service
+mkdir -p /opt/shutdown-service

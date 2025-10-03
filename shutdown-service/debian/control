@@ -1,0 +1,16 @@
+Source: shutdown-service
+Section: python
+Priority: optional
+Maintainer: Markus Zarbock <foss@starwit.de>
+Build-Depends: debhelper (>= 11), dh-python, python3-all (>= 3.10), python3-setuptools, python3-pip
+Standards-Version: 4.1.3
+Homepage: https://starwit.de
+
+Package: shutdown-service
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}, python3 (>= 3.10), python3 (<< 3.13), 
+          python3-pip
+XB-Python-Version: ${python:Versions}
+Description: Shutdown service
+ This is a service, that shall serve as a template for APT based services.
+ Sample service shall offer an API to remotely shutdown a server.

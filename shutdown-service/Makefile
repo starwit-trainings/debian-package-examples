@@ -2,11 +2,15 @@
 
 export PACKAGE_NAME=shutdown-service
 
+RELEASEMSG := Automated build release
+EMAIL      := foss@starwit.de
+NAME       := Build Bot
+
 install:
 	poetry install
 
-check-settings:
-	./check_settings.sh
+settings.yaml:
+	cp settings.template.yaml settings.yaml
 
 test: install
 	poetry run pytest
@@ -14,21 +18,23 @@ test: install
 set-version:
 	$(eval VERSION := $(shell poetry version -s))
 	@echo $(VERSION)
-	sed -i -e "s/###RELEASE_VERSION###/$(VERSION)/" debian/changelog
+	dch --newversion "$(VERSION)" \
+	    --maintmaint \
+	    --controlmaint \
+	    --distribution unstable \
+	    --changelog debian/changelog \
+	    --vendor "" \
+	    --force-distribution \
+	    "$(RELEASEMSG)" \
+	    -- \
+	    --author "$(NAME) <$(EMAIL)>"
 
-build-deb: check-settings set-version
+build-deb: settings.yaml set-version
 
 	poetry export --without-hashes --format=requirements.txt > requirements.txt
 
-	$(shell echo ${GPG_KEY} | base64 --decode | gpg --batch --import)
-	$(eval KEYID := $(shell gpg --list-keys --with-colons | grep pub | cut -d: -f5))
-	@echo "Signing with key id: $(KEYID)"
-
 	@echo "Build package"
 	dpkg-buildpackage --no-sign
-	
-	@echo "Signing package"
-	$(shell echo "${PASSPHRASE}" | debsign -k$(KEYID) -p"gpg --batch --pinentry-mode loopback --passphrase-fd 0" ../${PACKAGE_NAME}_*.changes)	
 
 	mkdir -p target
 	mv ../${PACKAGE_NAME}_* target/
