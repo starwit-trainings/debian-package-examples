@@ -1,0 +1,2 @@
+log_level: INFO
+shutdown_timeout: 180
