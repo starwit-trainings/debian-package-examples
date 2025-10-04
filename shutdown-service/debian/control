@@ -8,8 +8,8 @@ Homepage: https://starwit.de
 
 Package: shutdown-service
 Architecture: all
-Depends: ${misc:Depends}, ${python3:Depends}, python3 (>= 3.10), python3 (<< 3.13), 
-          python3-pip
+Depends: ${misc:Depends}, ${python3:Depends}, python3-all (>= 3.10), python3-pip,
+        python3-venv
 XB-Python-Version: ${python:Versions}
 Description: Shutdown service
  This is a service, that shall serve as a template for APT based services.
